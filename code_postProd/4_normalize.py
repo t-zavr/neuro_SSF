@@ -73,13 +73,12 @@ for file in sorted(os.listdir(flow_dir)):
 
     # array_normed = array[:] / global_n[0]                                 # for norm minMax
     # array_normed = (array - global_n[1]) / (global_n[0] - global_n[1])    # for norm 0 to 1
-    # array_normed = (2 * ((array - global_n[1]) / (global_n[0] - global_n[1]))) - 1  # for norm -1 to 1
-    # array_normed = array / global_n[2]               # for norm -1 to 1
+    # array_normed = (2 * ((array - global_n[1]) / (global_n[0] - global_n[1]))) - 1    # for norm -1 to 1
+    # array_normed = array / global_n[2]                                                # for norm -1 to 1
 
     array_normed = array / abs_norma
 
     np.savetxt(dest_dir + file, array_normed, fmt='%.12f')
-    # np.savetxt(dest_dir + "flow" + file[1:], array_normed, fmt='%.12f')
 
 
 # print("start time:  " + str(now))

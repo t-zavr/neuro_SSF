@@ -58,9 +58,9 @@ divergence_img = true_flow - sflow_generated
 # for 4 pictures
 unknown, arr = plt.subplots(1, 4)
 arr[0].imshow(picture, cmap='Greys')
-arr[1].imshow(true_flow[:, :, 1], vmin=-0.35, vmax=0.35)
-arr[2].imshow(sflow_generated[:, :, 1], vmin=-0.35, vmax=0.35)
-arr[3].imshow(divergence_img[:, :, 1], vmin=-0.35, vmax=0.35)
+arr[1].imshow(true_flow[:, :, 0], vmin=-0.35, vmax=0.35)
+arr[2].imshow(sflow_generated[:, :, 0], vmin=-0.35, vmax=0.35)
+arr[3].imshow(divergence_img[:, :, 0], vmin=-0.35, vmax=0.35)
 plt.show()
 
 # # for 2 pictures

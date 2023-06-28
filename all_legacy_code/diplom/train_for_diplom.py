@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 import sys
 
-sys.path.append('../')
+sys.path.append('../../')
 import model.flow_net as flow_net
 
 

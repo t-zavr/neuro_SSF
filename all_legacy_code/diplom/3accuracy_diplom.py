@@ -9,7 +9,7 @@ import sys
 import matplotlib.pyplot as plt
 import time
 
-sys.path.append('../')
+sys.path.append('../../')
 import model.flow_net as flow_net
 
 
