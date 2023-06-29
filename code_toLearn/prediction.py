@@ -16,8 +16,8 @@ import model.flow_net as flow_net
 
 checkpoint_dir = r"C:\wolk\check_9383\\"                  # directory with checkpoints
 
-bound_file = r"C:\wolk\sets_more\bnd_upped\bndsquare"       # for boundary files
-true_flow = r"C:\wolk\sets_more\flow_upped\flowsquare"
+bound_file = r"C:\wolk\sets_more\bnd_upped\bndalpaca"       # for boundary files
+true_flow = r"C:\wolk\sets_more\flow_upped\flowalpaca"
 
 # bound_file = iio.imread(r"C:\wolk\pics_new\re_more_pics\0cat.png", pilmode='1')         # for png files
 # bound_file = np.where(bound_file > 0, 0, 1)
@@ -58,9 +58,9 @@ divergence_img = true_flow - sflow_generated
 # for 4 pictures
 unknown, arr = plt.subplots(1, 4)
 arr[0].imshow(picture, cmap='Greys')
-arr[1].imshow(true_flow[:, :, 0], vmin=-0.35, vmax=0.35)
-arr[2].imshow(sflow_generated[:, :, 0], vmin=-0.35, vmax=0.35)
-arr[3].imshow(divergence_img[:, :, 0], vmin=-0.35, vmax=0.35)
+arr[1].imshow(true_flow[:, :, 0], vmin=-0.45, vmax=0.45)
+arr[2].imshow(sflow_generated[:, :, 0], vmin=-0.45, vmax=0.45)
+arr[3].imshow(divergence_img[:, :, 0], vmin=-0.45, vmax=0.45)
 plt.show()
 
 # # for 2 pictures
