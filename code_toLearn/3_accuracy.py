@@ -82,9 +82,6 @@ with tf.Graph().as_default():
         # plt.imshow(sflow_true[:, :, 0])
 
         divergence_img = sflow_true - sflow_generated
-        # x = np.mean(np.absolute(divergence_img))
-        # y = np.max(np.absolute(divergence_img))
-        # print(x / y * 100)
 
         sum_true = np.sum(np.absolute(sflow_true))
         sum_gen = np.sum(np.absolute(sflow_generated))
@@ -119,8 +116,6 @@ with tf.Graph().as_default():
         # plt.imshow(divergence_img[:, :, 0])
         # plt.imshow(sflow_true[:, :, 0])
 
-        print(1)
-
 average_ratio_max = round((np.average(max_ratio)) * 100, 3)    # * 100
 biggest_ARM = round(np.max(max_ratio) * 100, 3)  # * 100
 
@@ -130,11 +125,6 @@ largest_sec_ratio = round(np.max(sec_ratio) * 100, 3)
 print(f"\naverage ratio of max_divergence to true_value:  {str(average_ratio_max)} %")
 print(f"largest is:  {str(biggest_ARM)} %")
 print(f"number of skipped files because of dividing by zero {num_skipped} \n")
-
-# all_average_ratio = round(np.average(average_ratio) * 100, 3)   # * 100
-# biggest_AVR = round(np.max(average_ratio) * 100, 3)  # * 100
-# print(f"average ratio for all points all test images is:  {str(all_average_ratio)} %")
-# print(f"largest is:  {str(biggest_AVR)} %\n")
 
 print(f"average ratio for all images:  {str(sec_average_ratio)} %")
 print(f"largest ratio is:  {str(largest_sec_ratio)} % \n")
