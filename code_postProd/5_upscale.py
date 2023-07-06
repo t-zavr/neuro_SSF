@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-root = r"C:\wolk\5564_set\\"                   # directory WITH BOTH flow_normed and boundary_set
+root = r"C:\wolk\5564_set\\"                      # directory WITH BOTH flow_normed and boundary_set
 dest_dir = root                                # path to destination directory
 
 normed_flow_path = root + r"flow_normed/"

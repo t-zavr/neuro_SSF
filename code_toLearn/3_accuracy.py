@@ -16,8 +16,6 @@ import model.flow_net as flow_net
 def locate_largest_absValue(matrix):
     largest_num = 0.0
     row, col, xy = 0, 0, 0
-    # ind_col, ind_row = 0, 0
-    # matrix = np.reshape(matrix, (32768, 2))
 
     for ind_row in range(256):     # 256
         for ind_col in range(128):
@@ -33,8 +31,10 @@ def locate_largest_absValue(matrix):
 
 checkpoint_dir = r"C:\wolk\check_9383\\"
 
-bound_test_dir = r"C:\wolk\sets_more\bnd_upped\\"
-flow_test_dir = r"C:\wolk\sets_more\flow_upped\\"
+# bound_test_dir = r"C:\wolk\sets_more\bnd_upped\\"
+# flow_test_dir = r"C:\wolk\sets_more\flow_upped\\"
+bound_test_dir = r"C:\wolk\bnd\\"
+flow_test_dir = r"C:\wolk\flow\\"
 
 shape = [128, 256]      # don't use [256, 128] - it's incorrect
 
@@ -82,6 +82,9 @@ with tf.Graph().as_default():
         # plt.imshow(sflow_true[:, :, 0])
 
         divergence_img = sflow_true - sflow_generated
+        # x = np.mean(np.absolute(divergence_img))
+        # y = np.max(np.absolute(divergence_img))
+        # print(x / y * 100)
 
         sum_true = np.sum(np.absolute(sflow_true))
         sum_gen = np.sum(np.absolute(sflow_generated))
@@ -89,7 +92,7 @@ with tf.Graph().as_default():
 
         # average_ratio[num_file] = sum_div / sum_true
 
-        sec_div = sum_true - sum_gen
+        sec_div = abs(sum_true - sum_gen)
         sec_ratio.append(sec_div / sum_gen)
 
         location_maxD = locate_largest_absValue(divergence_img)
@@ -102,7 +105,7 @@ with tf.Graph().as_default():
             continue
         else:
             # max_ratio.append(location_maxD[0] / md_true)
-            max_ratio.append( (md_true - md_gen) / md_true)
+            max_ratio.append( abs(md_true - md_gen) / md_true)
 
         # unknown, arr = plt.subplots(2, 3)
         # # arr[0].colorbar(arr[0].imshow(divergence_img[:, :, 0]))
@@ -125,6 +128,11 @@ largest_sec_ratio = round(np.max(sec_ratio) * 100, 3)
 print(f"\naverage ratio of max_divergence to true_value:  {str(average_ratio_max)} %")
 print(f"largest is:  {str(biggest_ARM)} %")
 print(f"number of skipped files because of dividing by zero {num_skipped} \n")
+
+# all_average_ratio = round(np.average(average_ratio) * 100, 3)   # * 100
+# biggest_AVR = round(np.max(average_ratio) * 100, 3)  # * 100
+# print(f"average ratio for all points all test images is:  {str(all_average_ratio)} %")
+# print(f"largest is:  {str(biggest_AVR)} %\n")
 
 print(f"average ratio for all images:  {str(sec_average_ratio)} %")
 print(f"largest ratio is:  {str(largest_sec_ratio)} % \n")

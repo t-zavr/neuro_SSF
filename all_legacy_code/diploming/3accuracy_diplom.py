@@ -81,7 +81,7 @@ with tf.Graph().as_default():
         sum_true = np.sum(np.absolute(sflow_true))
         sum_gen = np.sum(np.absolute(sflow_generated))
 
-        sec_div = sum_true - sum_gen
+        sec_div = abs(sum_true - sum_gen)
         sec_ratio.append(sec_div / sum_true) #
 
         divergence_img = sflow_true - sflow_generated
@@ -95,7 +95,7 @@ with tf.Graph().as_default():
             continue
         else:
             # max_ratio.append(location_maxD[0] / md_true)
-            max_ratio.append( (md_true - md_gen) / md_true)
+            max_ratio.append( abs(md_true - md_gen) / md_true)
 
 
 average_ratio_max = round((np.average(max_ratio)) * 100, 3)
