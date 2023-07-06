@@ -29,16 +29,13 @@ def locate_largest_absValue(matrix):
     return largest_num, row, col, xy
 
 
-checkpoint_dir = r"C:\wolk\check_9383\\"
-
-# bound_test_dir = r"C:\wolk\sets_more\bnd_upped\\"
-# flow_test_dir = r"C:\wolk\sets_more\flow_upped\\"
-bound_test_dir = r"C:\wolk\bnd\\"
-flow_test_dir = r"C:\wolk\flow\\"
-
-shape = [128, 256]      # don't use [256, 128] - it's incorrect
+checkpoint_dir = r" __ "
+bound_test_dir = r" __ "
+flow_test_dir = r" __ "
 
 ##################################
+
+shape = [128, 256]      # don't use [256, 128] - it's incorrect
 
 bound_test_files = sorted(os.listdir(bound_test_dir))
 flow_test_files = sorted(os.listdir(flow_test_dir))
@@ -113,11 +110,6 @@ largest_sec_ratio = round(np.max(sec_ratio) * 100, 3)
 print(f"\naverage ratio of max_divergence to true_value:  {str(average_ratio_max)} %")
 print(f"largest is:  {str(biggest_ARM)} %")
 print(f"number of skipped files because of dividing by zero {num_skipped} \n")
-
-# all_average_ratio = round(np.average(average_ratio) * 100, 3)   # * 100
-# biggest_AVR = round(np.max(average_ratio) * 100, 3)  # * 100
-# print(f"average ratio for all points all test images is:  {str(all_average_ratio)} %")
-# print(f"largest is:  {str(biggest_AVR)} %\n")
 
 print(f"average ratio for all images:  {str(sec_average_ratio)} %")
 print(f"largest ratio is:  {str(largest_sec_ratio)} % \n")

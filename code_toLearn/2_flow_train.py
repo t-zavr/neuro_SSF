@@ -17,7 +17,7 @@ record_file = r" __ .tfrecords"
 
 max_steps = 80001                                   # max number of steps (generations)
 batch_size = 8
-keep_prob = 0.7                                     # probability for dropout (0.7)
+keep_prob = 0.7                                     #
 learning_rate = 1e-4
 
 #######################

@@ -15,12 +15,10 @@ import model.flow_net as flow_net
 
 # this is script for making a single prediction
 
-checkpoint_dir = r"C:\wolk\check_9383\\"  # directory with checkpoints
+checkpoint_dir = r" __ "  # directory with checkpoints
 
-# bound_file = r"C:\wolk\sets_more\bnd_upped\bndcat"  # for boundary files
-# true_flow = r"C:\wolk\sets_more\flow_upped\flowcat"
-bound_file = r"C:\wolk\bnd\bnd000000"
-true_flow = r"C:\wolk\flow\flow000000"
+bound_file = r" __ "  # for boundary files
+true_flow = r" __ "
 
 # bound_file = iio.imread(r"C:\wolk\pics_new\re_more_pics\0cat.png", pilmode='1')         # for png files
 # bound_file = np.where(bound_file > 0, 0, 1)
@@ -51,35 +49,35 @@ with tf.Graph().as_default():
 
 picture = np.reshape(boundary_np, (256, 128))
 
-# to cut a half of the image
+# # to cut a half of the image
 # picture = np.array_split(picture, 2)[0]
 # true_flow = np.array_split(true_flow, 2)[0]
 # sflow_generated = np.array_split(sflow_generated, 2)[0]
 
 divergence_img = true_flow - sflow_generated
 
-# for color-bar
-const = 8.54544
-print(np.min(true_flow[:, :, 0]), np.max(true_flow[:, :, 0]))
-print(np.min(true_flow[:, :, 0]) * const, np.max(true_flow[:, :, 0]) * const)
-
-that_array = np.arange(np.min(true_flow[:, :, 0]), np.max(true_flow[:, :, 0]), 0.005)
-that_array = that_array * const
-bar = [that_array, that_array]
-plt.pcolor(bar)
-plt.colorbar()
-plt.clim(np.min(true_flow[:, :, 0]) * const, np.max(true_flow[:, :, 0]) * const)
-plt.show()
-
-# # for 4 pictures
-# mpl.rcParams['figure.dpi'] = 400
-# unknown, arr = plt.subplots(1, 4)
-# arr[0].imshow(picture, cmap='Greys')
-# arr[1].imshow(true_flow[:, :, 0], vmin=-0.4, vmax=0.4)
-# arr[2].imshow(sflow_generated[:, :, 0], vmin=-0.4, vmax=0.4)
-# arr[3].imshow(divergence_img[:, :, 0], vmin=-0.4, vmax=0.4)
-# plt.setp(arr, xticks=[], yticks=[])
+# # for color-bar
+# const = 8.54544
+# print(np.min(true_flow[:, :, 0]), np.max(true_flow[:, :, 0]))
+# print(np.min(true_flow[:, :, 0]) * const, np.max(true_flow[:, :, 0]) * const)
+#
+# that_array = np.arange(np.min(true_flow[:, :, 0]), np.max(true_flow[:, :, 0]), 0.005)
+# that_array = that_array * const
+# bar = [that_array, that_array]
+# plt.pcolor(bar)
+# plt.colorbar()
+# plt.clim(np.min(true_flow[:, :, 0]) * const, np.max(true_flow[:, :, 0]) * const)
 # plt.show()
+
+# for 4 pictures
+mpl.rcParams['figure.dpi'] = 400
+unknown, arr = plt.subplots(1, 4)
+arr[0].imshow(picture, cmap='Greys')
+arr[1].imshow(true_flow[:, :, 0], vmin=-0.4, vmax=0.4)
+arr[2].imshow(sflow_generated[:, :, 0], vmin=-0.4, vmax=0.4)
+arr[3].imshow(divergence_img[:, :, 0], vmin=-0.4, vmax=0.4)
+plt.setp(arr, xticks=[], yticks=[])
+plt.show()
 
 # # for 2 pictures
 # unknown, arr = plt.subplots(1, 2)
