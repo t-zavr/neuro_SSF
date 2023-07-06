@@ -4,26 +4,20 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 
 
-flow_dir = r"C:\wolk\5564_set\flow_upped\\"      # directory with flow_files
-bnd_dir = r"C:\wolk\5564_set\bnd_upped\\"        # directory with boundary files
+flow_dir = r" __ "      # directory with flow_files
+bnd_dir = r" __ "        # directory with boundary files
 
-destination = r"C:\wolk\5564_set\\"              # directory for .tfrecords
+destination = r" __ "              # directory for .tfrecords
 
-train_record_file = destination + '5564.tfrecords'      # name of file for train data
-
-# number_of_testFiles = 100                                      # how many files is for tests
+train_record_file = destination + '__ .tfrecords'      # name of file for train data
 
 ##################
 
 bnd_list = sorted(os.listdir(bnd_dir))
 flow_list = sorted(os.listdir(flow_dir))
 train_writer = tf.compat.v1.python_io.TFRecordWriter(train_record_file)
-# test_writer = tf.compat.v1.python_io.TFRecordWriter(test_record_file)
 
 for indx in range(len(bnd_list)):
-
-    # if indx < number_of_testFiles:
-    #     continue
 
     bnd_file = bnd_dir + bnd_list[indx]
     flow_file = flow_dir + flow_list[indx]
@@ -63,9 +57,4 @@ for indx in range(len(bnd_list)):
         'sflow': tf.train.Feature(bytes_list=tf.train.BytesList(value=[s]))}))
 
     train_writer.write(example.SerializeToString())
-    # if indx >= number_of_testFiles:
-    #     train_writer.write(example.SerializeToString())
-    # else:
-    #     test_writer.write(example.SerializeToString())
-
     print(indx)

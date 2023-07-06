@@ -82,9 +82,6 @@ with tf.Graph().as_default():
         # plt.imshow(sflow_true[:, :, 0])
 
         divergence_img = sflow_true - sflow_generated
-        # x = np.mean(np.absolute(divergence_img))
-        # y = np.max(np.absolute(divergence_img))
-        # print(x / y * 100)
 
         sum_true = np.sum(np.absolute(sflow_true))
         sum_gen = np.sum(np.absolute(sflow_generated))
@@ -106,18 +103,6 @@ with tf.Graph().as_default():
         else:
             # max_ratio.append(location_maxD[0] / md_true)
             max_ratio.append( abs(md_true - md_gen) / md_true)
-
-        # unknown, arr = plt.subplots(2, 3)
-        # # arr[0].colorbar(arr[0].imshow(divergence_img[:, :, 0]))
-        # arr[0, 0].imshow(divergence_img[:, :, 0], vmin=-0.5, vmax=0.5)
-        # # plt.colorbar(arr[0])
-        # arr[0, 1].imshow(sflow_generated[:, :, 0], vmin=-0.5, vmax=0.5)
-        # # plt.colorbar(arr[1])
-        # arr[0, 2].imshow(sflow_true[:, :, 0], vmin=-0.5, vmax=0.5)
-        # plt.colorbar(arr)
-
-        # plt.imshow(divergence_img[:, :, 0])
-        # plt.imshow(sflow_true[:, :, 0])
 
 average_ratio_max = round((np.average(max_ratio)) * 100, 3)    # * 100
 biggest_ARM = round(np.max(max_ratio) * 100, 3)  # * 100

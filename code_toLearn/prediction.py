@@ -51,6 +51,7 @@ with tf.Graph().as_default():
 
 picture = np.reshape(boundary_np, (256, 128))
 
+# to cut a half of the image
 # picture = np.array_split(picture, 2)[0]
 # true_flow = np.array_split(true_flow, 2)[0]
 # sflow_generated = np.array_split(sflow_generated, 2)[0]

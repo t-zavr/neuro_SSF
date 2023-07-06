@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 
 
 root = r"C:\wolk\5564_set\\"                      # directory WITH BOTH flow_normed and boundary_set
-dest_dir = root                                # path to destination directory
 
 normed_flow_path = root + r"flow_normed/"
 boundary_path = root + r"bnd_set/"
@@ -18,12 +17,8 @@ flow_list = sorted(os.listdir(normed_flow_path))
 bnd_list = sorted(os.listdir(boundary_path))
 
 try:
-    os.mkdir(dest_dir)
-except:
-    print("destination path already exist")
-try:
-    os.mkdir(dest_dir + r"/flow_upped/")
-    os.mkdir(dest_dir + r"/bnd_upped/")
+    os.mkdir(root + r"/flow_upped/")
+    os.mkdir(root + r"/bnd_upped/")
 except:
     print("path already exist")
 
@@ -70,9 +65,9 @@ for indx in range(len(flow_list)):
     # new_bound[:, 0] = 1
     # new_bound[:, new_shape[1] - 1] = 1  # new_array[:, 127] = 1
 
-    np.savetxt(dest_dir + r"flow_upped/" + flow_list[indx], new_flow,
+    np.savetxt(root + r"flow_upped/" + flow_list[indx], new_flow,
                delimiter=" ", newline="\n", fmt="%s")
-    np.savetxt(dest_dir + r"bnd_upped/" + bnd_list[indx], new_bound,
+    np.savetxt(root + r"bnd_upped/" + bnd_list[indx], new_bound,
                delimiter=" ", newline="\n", fmt="%s")
 
     print(bnd_list[indx] + "   is done")

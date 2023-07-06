@@ -10,10 +10,10 @@ sys.path.append('../')
 import model.flow_net as flow_net
 
 
-train_dir = r"C:\wolk\check_5564_05_more\\"              # directory for checkpoints
-from_check = r"C:\wolk\check_5564_05\\"
+train_dir = r" __ "              # directory for checkpoints
+from_check = r" __ "
 
-record_file = r"C:\wolk\5564_set\5564.tfrecords"
+record_file = r" __ .tfrecords"
 
 max_steps = 80001                                   # max number of steps (generations)
 batch_size = 8
@@ -22,7 +22,6 @@ learning_rate = 1e-4
 
 #######################
 
-# Train ring_net for a number of steps.
 with tf.Graph().as_default():
 
     # make inputs
