@@ -56,19 +56,6 @@ picture = np.reshape(boundary_np, (256, 128))
 
 divergence_img = true_flow - sflow_generated
 
-# # for color-bar
-# const = 8.54544
-# print(np.min(true_flow[:, :, 0]), np.max(true_flow[:, :, 0]))
-# print(np.min(true_flow[:, :, 0]) * const, np.max(true_flow[:, :, 0]) * const)
-#
-# that_array = np.arange(np.min(true_flow[:, :, 0]), np.max(true_flow[:, :, 0]), 0.005)
-# that_array = that_array * const
-# bar = [that_array, that_array]
-# plt.pcolor(bar)
-# plt.colorbar()
-# plt.clim(np.min(true_flow[:, :, 0]) * const, np.max(true_flow[:, :, 0]) * const)
-# plt.show()
-
 # for 4 pictures
 mpl.rcParams['figure.dpi'] = 400
 unknown, arr = plt.subplots(1, 4)

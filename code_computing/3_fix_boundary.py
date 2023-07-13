@@ -27,7 +27,6 @@ for name in files_list:
         file.close()
 
 
-
 #     dict_file = files_dir + name + "/system/controlDict"
 #     with open(dict_file, 'r') as file1:
 #         data1 = file1.read()

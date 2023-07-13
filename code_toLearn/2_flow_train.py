@@ -15,9 +15,9 @@ from_check = r" __ "
 
 record_file = r" __ .tfrecords"
 
-max_steps = 80001                                   # max number of steps (generations)
+max_steps = 80001
 batch_size = 8
-keep_prob = 0.7                                     #
+keep_prob = 0.7
 learning_rate = 1e-4
 
 #######################
